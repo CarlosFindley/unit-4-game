@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+}
+
+body {
+    background-image: url(../images/magma.png); /* https://www.pexels.com/photo/nature-france-rocks-caves-2633/ */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    text-align: center;
+    font-size: 1em;
+    color: #fff;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 4em;
+    padding: 1em;
+}
+
+div.rules {
+    margin: 0 auto;
+    max-width: 80%;
+    width: 100%;
+    line-height: 1.5em;
+}
+
+h2 {
+    margin: 0 auto;
+    max-width: 30%;
+    width: 100%;
+    font-size: 2em;
+    border-bottom: .1em #fff solid;
+    padding-bottom: .1em;
+    margin-bottom: .5em;
+}
+
+.card {
+    background: rgba(150, 55, 55, 0.2);
+    border: .2em double;
+    font-size: 1.2em;
+}
+
+div.mathNumber {
+    
+    
+
+}
