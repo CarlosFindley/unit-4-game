@@ -5,20 +5,11 @@ $(document).ready(function() {
         // add the random number to Match This Number text
         $(".RandomNumberToMatch").html("&#x25C8; Match This Score: " + randomNumberGenerator + " &#x25C8;");
 
-    // create random numbers per gem between 1 and 16 AND add the random number to gems
+    // create random numbers per gem between 1 and 16
     var rubyRandomNumber = Math.round(Math.random() * 15) + 1;
-        $(".rubyGem").data(rubyRandomNumber);
-        // adding console log to test random numbers are being generated
-        console.log("ruby", rubyRandomNumber);
     var sapphireRandomNumber = Math.round(Math.random() * 15) + 1;
-        $(".sapphireGem").data(sapphireRandomNumber);
-        console.log("saf", sapphireRandomNumber);
     var emeraldRandomNumber = Math.round(Math.random() * 15) + 1;
-        $(".emeraldGem").data(sapphireRandomNumber);
-        console.log("eme", emeraldRandomNumber);
     var diamondRandomNumber = Math.round(Math.random() * 15) + 1;
-        $(".diamondGem").data(rubyRandomNumber);
-        console.log("dia", diamondRandomNumber);
 
     // set Total Score var
     var totalScore = 0;
@@ -33,8 +24,57 @@ $(document).ready(function() {
     // set losses var
     var totalLosses = 0;
         // add the score value to score text
-        $(".losses").html("Losses: " + totalWins);
+        $(".losses").html("Losses: " + totalLosses);
 
+    // create reset function.  NOT SURE IF RIGHT
+    var reset = function() {
+        var randomNumberGenerator = Math.round(Math.random() * 110) + 25;
+            $(".RandomNumberToMatch").html("&#x25C8; Match This Score: " + randomNumberGenerator + " &#x25C8;");
+        var totalScore = 0;
+            $(".score").html("Your Current Score: " + totalScore);
+        var rubyRandomNumber = Math.round(Math.random() * 15) + 1;
+        var sapphireRandomNumber = Math.round(Math.random() * 15) + 1;
+        var emeraldRandomNumber = Math.round(Math.random() * 15) + 1;
+        var diamondRandomNumber = Math.round(Math.random() * 15) + 1;
+    };
+
+     // check if computer score and user score match
+     function scoreCheck() {
+        if (totalScore === randomNumberGenerator) {
+            totalWins++;
+            $(".wins").html("Wins: " + totalWins);
+            reset();
+        } else if (totalScore > randomNumberGenerator) {
+            totalLosses++;
+            $(".losses").html("Losses: " + totalLosses);
+            reset();
+        }
+    };
+
+    // add gem scores to total score
+    $(".ruby").on("click", function () {
+        totalScore += rubyRandomNumber;
+        $(".score").html("Your Current Score: " + totalScore);
+        scoreCheck()
+    });
+
+    $(".sapphire").on("click", function () {
+        totalScore += sapphireRandomNumber;
+        $(".score").html("Your Current Score: " + totalScore);
+        scoreCheck()
+    });
+
+    $(".emerald").on("click", function () {
+        totalScore += emeraldRandomNumber;
+        $(".score").html("Your Current Score: " + totalScore);
+        scoreCheck()
+    });
+
+    $(".diamond").on("click", function () {
+        totalScore += diamondRandomNumber;
+        $(".score").html("Your Current Score: " + totalScore);
+        scoreCheck()
+    });
 });
 
 
