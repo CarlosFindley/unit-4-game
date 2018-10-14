@@ -14,21 +14,23 @@ $(document).ready(function() {
     // set wins var
     var totalWins = 0;
         // add the score value to score text
-        $(".wins").html("Wins: " + totalWins);
+        $(".wins").html("Wins: <b></b>" + totalWins);
 
     // set losses var
     var totalLosses = 0;
         // add the score value to score text
-        $(".losses").html("Losses: " + totalLosses);
+        $(".losses").html("Losses: <b></b>" + totalLosses);
 
     // create random numbers per gem between 1 and 16
-    var rubyRandomNumber = Math.round(Math.random() * 15) + 1;
-    var sapphireRandomNumber = Math.round(Math.random() * 15) + 1;
-    var emeraldRandomNumber = Math.round(Math.random() * 15) + 1;
+    var rubyRandomNumber = Math.round(Math.random() * 5) + 1;
+    var sapphireRandomNumber = Math.round(Math.random() * 10) + 1;
+    var emeraldRandomNumber = Math.round(Math.random() * 12) + 1;
     var diamondRandomNumber = Math.round(Math.random() * 15) + 1;
 
-
-    //function testfunction() { console.log(totalScore)} // 0
+    // sound effects
+    var crystalSound = new Audio("./assets/audio/crystalCollect.mp3"); // resource https://freesound.org/people/bradwesson/sounds/135936/#
+    var winSound = new Audio("./assets/audio/win.mp3");
+    var loseSound = new Audio("./assets/audio/lose.mp3");
 
     // create reset function
     var reset = function() {
@@ -39,9 +41,9 @@ $(document).ready(function() {
         totalScore = 0;
             $(".score").html("Your Current Score: " + totalScore);
         // resetting gems random numbers vars
-        rubyRandomNumber = Math.round(Math.random() * 15) + 1;
-        sapphireRandomNumber = Math.round(Math.random() * 15) + 1;
-        emeraldRandomNumber = Math.round(Math.random() * 15) + 1;
+        rubyRandomNumber = Math.round(Math.random() * 5) + 1;
+        sapphireRandomNumber = Math.round(Math.random() * 10) + 1;
+        emeraldRandomNumber = Math.round(Math.random() * 12) + 1;
         diamondRandomNumber = Math.round(Math.random() * 15) + 1;
     };
 
@@ -49,35 +51,47 @@ $(document).ready(function() {
      function scoreCheck() {
         if (totalScore === randomNumberGenerator) {
             totalWins++;
-            $(".wins").html("Wins: " + totalWins);
+            winSound.play();
+            winSound.currentTime = 0;
+            $(".wins").html("Wins: <b></b>" + totalWins);
             reset();
         } else if (totalScore > randomNumberGenerator) {
             totalLosses++;
-            $(".losses").html("Losses: " + totalLosses);
+            loseSound.play();
+            loseSound.currentTime = 0;
+            $(".losses").html("Losses: <b></b>" + totalLosses);
             reset();
         }
     };
 
     // add gem scores to total score
     $(".ruby").on("click", function () {
+        crystalSound.play();
+        crystalSound.currentTime = 0;
         totalScore += rubyRandomNumber;
         $(".score").html("Your Current Score: " + totalScore);
         scoreCheck();
     });
 
     $(".sapphire").on("click", function () {
+        crystalSound.play();
+        crystalSound.currentTime = 0;
         totalScore += sapphireRandomNumber;
         $(".score").html("Your Current Score: " + totalScore);
         scoreCheck();
     });
 
     $(".emerald").on("click", function () {
+        crystalSound.play();
+        crystalSound.currentTime = 0;
         totalScore += emeraldRandomNumber;
         $(".score").html("Your Current Score: " + totalScore);
         scoreCheck();
     });
 
     $(".diamond").on("click", function () {
+        crystalSound.play();
+        crystalSound.currentTime = 0;
         totalScore += diamondRandomNumber;
         $(".score").html("Your Current Score: " + totalScore);
         scoreCheck();
