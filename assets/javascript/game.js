@@ -5,14 +5,9 @@ $(document).ready(function() {
         // add the random number to Match This Number text
         $(".RandomNumberToMatch").html("&#x25C8; Match This Score: " + randomNumberGenerator + " &#x25C8;");
 
-    // create random numbers per gem between 1 and 16
-    var rubyRandomNumber = Math.round(Math.random() * 15) + 1;
-    var sapphireRandomNumber = Math.round(Math.random() * 15) + 1;
-    var emeraldRandomNumber = Math.round(Math.random() * 15) + 1;
-    var diamondRandomNumber = Math.round(Math.random() * 15) + 1;
-
     // set Total Score var
     var totalScore = 0;
+    //console.log(totalScore)  the answer here is 0 ;
         // add the score value to score text
         $(".score").html("Your Current Score: " + totalScore);
 
@@ -26,16 +21,28 @@ $(document).ready(function() {
         // add the score value to score text
         $(".losses").html("Losses: " + totalLosses);
 
-    // create reset function.  NOT SURE IF RIGHT
+    // create random numbers per gem between 1 and 16
+    var rubyRandomNumber = Math.round(Math.random() * 15) + 1;
+    var sapphireRandomNumber = Math.round(Math.random() * 15) + 1;
+    var emeraldRandomNumber = Math.round(Math.random() * 15) + 1;
+    var diamondRandomNumber = Math.round(Math.random() * 15) + 1;
+
+
+    //function testfunction() { console.log(totalScore)} // 0
+
+    // create reset function
     var reset = function() {
-        var randomNumberGenerator = Math.round(Math.random() * 110) + 25;
+        // resetting random number var
+        randomNumberGenerator = Math.round(Math.random() * 110) + 25;
             $(".RandomNumberToMatch").html("&#x25C8; Match This Score: " + randomNumberGenerator + " &#x25C8;");
-        var totalScore = 0;
+        // resetting score var
+        totalScore = 0;
             $(".score").html("Your Current Score: " + totalScore);
-        var rubyRandomNumber = Math.round(Math.random() * 15) + 1;
-        var sapphireRandomNumber = Math.round(Math.random() * 15) + 1;
-        var emeraldRandomNumber = Math.round(Math.random() * 15) + 1;
-        var diamondRandomNumber = Math.round(Math.random() * 15) + 1;
+        // resetting gems random numbers vars
+        rubyRandomNumber = Math.round(Math.random() * 15) + 1;
+        sapphireRandomNumber = Math.round(Math.random() * 15) + 1;
+        emeraldRandomNumber = Math.round(Math.random() * 15) + 1;
+        diamondRandomNumber = Math.round(Math.random() * 15) + 1;
     };
 
      // check if computer score and user score match
@@ -55,25 +62,25 @@ $(document).ready(function() {
     $(".ruby").on("click", function () {
         totalScore += rubyRandomNumber;
         $(".score").html("Your Current Score: " + totalScore);
-        scoreCheck()
+        scoreCheck();
     });
 
     $(".sapphire").on("click", function () {
         totalScore += sapphireRandomNumber;
         $(".score").html("Your Current Score: " + totalScore);
-        scoreCheck()
+        scoreCheck();
     });
 
     $(".emerald").on("click", function () {
         totalScore += emeraldRandomNumber;
         $(".score").html("Your Current Score: " + totalScore);
-        scoreCheck()
+        scoreCheck();
     });
 
     $(".diamond").on("click", function () {
         totalScore += diamondRandomNumber;
         $(".score").html("Your Current Score: " + totalScore);
-        scoreCheck()
+        scoreCheck();
     });
 });
 
