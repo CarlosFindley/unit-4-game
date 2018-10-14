@@ -28,9 +28,9 @@ $(document).ready(function() {
     var diamondRandomNumber = Math.round(Math.random() * 15) + 1;
 
     // sound effects
-    var crystalSound = new Audio("audio/crystalCollect.mp3"); // resource https://freesound.org/people/bradwesson/sounds/135936/#
-    var winSound = new Audio("audio/win.mp3");
-    var loseSound = new Audio("audio/lose.mp3");
+    var crystalSound = new Audio("../audio/crystalCollect.mp3"); // resource https://freesound.org/people/bradwesson/sounds/135936/#
+    var winSound = new Audio("../audio/win.mp3");
+    var loseSound = new Audio("../audio/lose.mp3");
 
     // create reset function
     var reset = function() {
