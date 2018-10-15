@@ -28,9 +28,9 @@ $(document).ready(function() {
     var diamondRandomNumber = Math.round(Math.random() * 15) + 1;
 
     // sound effects
-    var crystalSound = new Audio("./assets/audio/crystalCollect.mp3"); // resource https://freesound.org/people/bradwesson/sounds/135936/#
-    var winSound = new Audio("./assets/audio/win.mp3");
-    var loseSound = new Audio("./assets/audio/lose.mp3");
+    var crystalSound = new Audio("./assets/audio/crystalCollect.mp3"); // resource www.zapsplat.com/music/ring-flappy-bird-tribute-coin-success-checkpoint-retro/
+    var winSound = new Audio("./assets/audio/win.mp3"); // resource www.zapsplat.com/music/gemstones-jewels-in-glass-jar-single-shake-1/
+    var loseSound = new Audio("./assets/audio/lose.mp3"); // resource www.zapsplat.com/music/cartoon-lose-grip-let-go-and-fall/
 
     // create reset function
     var reset = function() {
@@ -54,7 +54,7 @@ $(document).ready(function() {
             winSound.play();
             winSound.currentTime = 0;
             $(".wins").html("Wins: <b></b>" + totalWins);
-            $(".gemsCollected").append("<img src = './assets/images/collectedGem.png' height=50px />");
+            $(".gemsCollected").append("<img src = './assets/images/collectedGem.png' height=50px />"); // resource https://mbtskoudsalg.com/explore/transparent-gem-translucent/#gal_post_9573_gem-transparent.png
             reset();
         } else if (totalScore > randomNumberGenerator) {
             totalLosses++;
